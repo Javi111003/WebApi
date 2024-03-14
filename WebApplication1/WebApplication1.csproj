@@ -15,9 +15,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Account\Delete\" />
-    <Folder Include="Features\Admin\ArticleModeration\Approve\" />
-    <Folder Include="Features\Admin\ArticleModeration\GetPendingList\" />
-    <Folder Include="Features\Admin\ArticleModeration\Reject\" />
   </ItemGroup>
 
 </Project>
