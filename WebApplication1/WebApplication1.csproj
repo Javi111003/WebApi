@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FastEndpoints" Version="5.23.0" />
+    <PackageReference Include="FastEndpoints.Swagger" Version="5.23.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
+    <PackageReference Include="MongoDB.Entities" Version="23.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Account\Delete\" />
+    <Folder Include="Features\Admin\ArticleModeration\Approve\" />
+    <Folder Include="Features\Admin\ArticleModeration\GetPendingList\" />
+    <Folder Include="Features\Admin\ArticleModeration\Reject\" />
+  </ItemGroup>
+
+</Project>
