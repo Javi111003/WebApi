@@ -1,4 +1,6 @@
-﻿namespace Account.Create
+﻿using System.Linq.Expressions;
+
+namespace Account.Create
 {
     public class Request
     {
@@ -25,7 +27,8 @@
             RuleFor(x => x.UserName)
                 .NotEmpty().WithMessage("yor username is requeired!")
                 .MinimumLength(3).WithMessage("username is too short!")
-                .MaximumLength(15).WithMessage("username is too long!");
+                .MaximumLength(15).WithMessage("username is too long!")
+                .Must(BeUniqueUsername).WithMessage("These username is already in use , try to another one");            
             RuleFor(x => x.Password)
                 .NotEmpty().WithMessage("you need to insert your password to sign up!")
                 .MinimumLength(8).WithMessage("The minimun characters needed are 8 chars")
@@ -34,6 +37,13 @@
                 .NotEmpty().WithMessage("your age is requiered!")
                 .LessThan(120).WithMessage("please , insert your real age")
                 .GreaterThan(0).WithMessage("please , insert your real age");
+        }
+        private bool BeUniqueUsername(string name)
+        {
+            using (var _db = new UsersContext()) 
+            {
+                return !_db.Users.Any(u => u.Username== name);
+            }
         }
     }
 
