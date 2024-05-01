@@ -1,4 +1,4 @@
-﻿
+﻿using Posts.Create;
 namespace Account.Create
 {
     internal sealed class Endpoint : Endpoint<Request, Response, Mapper>
@@ -13,7 +13,7 @@ namespace Account.Create
         {
             using (var db = new UsersContext())
             {
-                var user = new User() { FirstName = r.FirstName, LastName = r.LastName, Age = r.Age, Email = r.Email, Passsword = r.Password, Username = r.UserName };
+                var user = new User() { FirstName = r.FirstName, LastName = r.LastName, Age = r.Age, Email = r.Email, Passsword = r.Password, Username = r.UserName ,Followers=new List<User>(), Following = new List<User>() , MyBlog = new List<Post>() };
                 db.Users.Add(user);
                 db.SaveChanges();
             }           
