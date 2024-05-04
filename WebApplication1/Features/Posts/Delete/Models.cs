@@ -12,12 +12,14 @@ namespace Posts.Delete
         public Validator()
         {
            RuleFor(x=>x.PostID).NotEmpty().WithMessage("Provide correctly the ID associated to the Post");
-           RuleFor(x => x.PostID).Must(ExistantPost).WithMessage("These post does not exist on Social Network");
+           RuleFor(x =>x.PostID).Must(ExistantPost).WithMessage("These post does not exist on Social Network");
         }
         private bool ExistantPost(int PostId)
         {
-            var db = new UsersContext();
-            return db.Posts.Any(x => x.Id == PostId);
+            using (var db = new UsersContext())
+            {
+                return db.Posts.Any(x => x.Id == PostId);
+            }
         }
     }
 

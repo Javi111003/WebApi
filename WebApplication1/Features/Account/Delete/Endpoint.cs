@@ -17,11 +17,16 @@ namespace Account.Delete
             {
                 var author = db.Users.Find(r.Username);
                 var response = new Response();
+                db.Entry(author).Collection(u => u.MyBlog).Load();
                 if (r.Password == author.Passsword)
                 {
+                    foreach(var post in author.MyBlog)
+                    {
+                        db.Posts.Remove(post);  
+                    }
                     db.Users.Remove(author);
                     db.SaveChanges();
-                    response.Message = $"The account under the name {r.Username} was deleted succesfully";
+                    response.Message = $"The account under the name {r.Username} was deleted succesfully from Social Network";
                 }
                 else
                 {

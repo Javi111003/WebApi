@@ -17,6 +17,7 @@ namespace Posts.Delete
             {
                 Post post = db.Posts.Find(r.PostID);
                 User author = db.Users.Find(post.AuthorID);
+                db.Entry(author).Collection(u => u.MyBlog).Load();
                 author.MyBlog.Remove(post);
                 db.Posts.Remove(post);
                 db.SaveChanges();

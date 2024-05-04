@@ -3,6 +3,7 @@ namespace Posts.Create
 {
     internal sealed class Request
     {
+        public string Title { get; set; }
         public string Caption { get; set; }
         public string Username { get; set; }
     }

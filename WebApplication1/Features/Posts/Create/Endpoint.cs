@@ -1,5 +1,6 @@
 ﻿using Account.Create;
-using YamlDotNet.Core.Tokens;
+using Interaction.Comments.Write;
+using Interaction.Likes.DoOrUndo;
 
 namespace Posts.Create
 {
@@ -17,8 +18,9 @@ namespace Posts.Create
             using (var db = new UsersContext())
             {
                 var author = db.Users.Find(r.Username);
-                var post = new Post() { Author = author.FirstName + " " + author.LastName, AuthorID = author.Username, Caption = r.Caption, Comments = new List<Comment>(), Likes = new List<Like>(), CreatedAt = DateTime.Now };
+                var post = new Post() { Author = author.FirstName + " " + author.LastName, AuthorID = author.Username, Caption = r.Caption, Comments = new List<Comment>(), Likes = new List<Like>(), CreatedAt = DateTime.Now ,Title=r.Title};
                 db.Posts.Add(post);
+                db.Entry(author).Collection(u => u.MyBlog).Load();
                 author.MyBlog.Add(post);
                 db.SaveChanges();
                 await SendAsync(new Response() { Message = $"Congrats {author.FirstName + " " + author.LastName} you have done your first Post on Social Network" });
