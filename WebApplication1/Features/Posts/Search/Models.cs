@@ -1,4 +1,5 @@
 ﻿using Account.Create;
+using Interaction.Comments.Write;
 
 namespace Posts.Search
 {
@@ -30,6 +31,7 @@ namespace Posts.Search
 
         public DateTime CreatedAt { get; set; }
         public int Likes { get; set; }
+        public ICollection<Comment> Comments { get; set; }
 
     }
 }

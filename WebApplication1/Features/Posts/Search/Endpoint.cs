@@ -16,7 +16,8 @@ namespace Posts.Search
             var db = new UsersContext(); 
             var post = db.Posts.Find(r.PostId);
             db.Entry(post).Collection(p => p.Likes).Load();
-            await SendAsync(new Response() { Body=post.Caption , Title=post.Title ,Likes=post.Likes.Count() , CreatedAt=post.CreatedAt , WritedBy=post.AuthorID });
+            db.Entry(post).Collection(p => p.Comments).Load();
+            await SendAsync(new Response() { Body=post.Caption , Title=post.Title ,Likes=post.Likes.Count() , CreatedAt=post.CreatedAt , WritedBy=post.AuthorID , Comments=post.Comments });
         }
     }
 }
