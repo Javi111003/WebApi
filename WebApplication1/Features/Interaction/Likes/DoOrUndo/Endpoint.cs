@@ -1,4 +1,5 @@
 ﻿using Account.Create;
+using System.Data.Entity;
 
 namespace Interaction.Likes.DoOrUndo
 {
@@ -20,6 +21,8 @@ namespace Interaction.Likes.DoOrUndo
             {
                 var like = post.Likes.FirstOrDefault(c => c.AuthorID==r.AuthorID);
                 post.Likes.Remove(like);
+                db.Entry(post).State = EntityState.Modified;
+                db.Entry(like).State = EntityState.Deleted;
                 response.Message = "Dislike </3";
             }
             else
