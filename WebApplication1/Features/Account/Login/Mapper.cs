@@ -1,4 +1,4 @@
-﻿namespace Accont.Login
+﻿namespace Account.Login
 {
     internal sealed class Mapper : Mapper<LoginRequest, LoginResponse, object>
     {

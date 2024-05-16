@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Account.Create.User">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAgCUAAAAAAAAAMAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Features\Account\Create\Data.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="MyBlog" />
+      <Property Name="Followers" />
+      <Property Name="Following" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Account.Create.UsersContext">
+    <Position X="8.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Account\Create\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Posts.Create.Post">
+    <Position X="1.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAQAAAAAEAAgCAAAAAAAAAAAAACCAAAAAAAIAA=</HashCode>
+      <FileName>Features\Posts\Create\Data.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Comments" />
+      <Property Name="Likes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Interaction.Likes.DoOrUndo.Like">
+    <Position X="3.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAQAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Interaction\Likes\DoOrUndo\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Interaction.Comments.Write.Comment">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAQAgAAAAEAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\Interaction\Comments\Write\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

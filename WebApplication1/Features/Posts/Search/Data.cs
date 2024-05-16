@@ -1,4 +1,4 @@
-﻿namespace Account.Login
+﻿namespace Posts.Search
 {
     internal static class Data
     {

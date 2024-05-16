@@ -1,6 +1,6 @@
 ﻿using Account.Create;
 
-namespace Accont.Login
+namespace Account.Login
 {
     internal sealed class LoginEndpoint : Endpoint<LoginRequest, LoginResponse, Mapper>
     {
