@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Interaction.Likes.DoOrUndo;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace Interaction.Comments.Write
@@ -12,5 +13,6 @@ namespace Interaction.Comments.Write
         public string AuthorID { get; set; }
         public string Content { get; set; }
         public int PostId { get; set; }
+        public ICollection<Like> Likes { get; set; }
     }
 }

@@ -17,6 +17,10 @@ namespace Posts.Search
             var post = db.Posts.Find(r.PostId);
             db.Entry(post).Collection(p => p.Likes).Load();
             db.Entry(post).Collection(p => p.Comments).Load();
+            foreach(var comment in post.Comments) 
+            {
+                db.Entry(comment).Collection(c => c.Likes).Load();
+            }
             await SendAsync(new Response() { Body=post.Caption , Title=post.Title ,Likes=post.Likes.Count() , CreatedAt=post.CreatedAt , WritedBy=post.AuthorID , Comments=post.Comments });
         }
     }
